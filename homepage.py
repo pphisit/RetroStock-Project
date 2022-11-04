@@ -1,5 +1,5 @@
 from tkinter import *
-from PIL import ImageTk
+from PIL import ImageTk,Image
 import subprocess
 from firebase_admin import credentials
 from firebase_admin import firestore
@@ -43,13 +43,31 @@ label1=Label(win,text="HOME",padx=1080,pady=35,font=90,bg="#ff9966")#.grid(row=0
 label1.pack()
 
 bt1=Button(win,text="SNES",height=2,width=15,command=snes)#.grid(row=4,column=1)
-bt1.pack(side=LEFT,expand=YES)
+bt1.place(x=150,y=400)
 
 bt2=Button(win,text="NES",height=2,width=15,command=nes)#.grid(row=4,column=2)
-bt2.pack(side=LEFT,expand=YES)
+bt2.place(x=500,y=400)
 
 bt3=Button(win,text="GBA",height=2,width=15,command=gba)#.grid(row=4,column=3)
-bt3.pack(side=LEFT,expand=YES)
+bt3.place(x=850,y=400)
+
+img = Image.open("image/snes-h.jpg")
+img =img.resize((int(img.width*.4),int(img.height*.4)))
+photo = ImageTk.PhotoImage(img)
+label2=Label(image=photo)
+label2.place(x=110,y=150)
+
+img1 = Image.open("image/nes-h.png")
+img1 =img1.resize((int(img1.width*.4),int(img1.height*.4)))
+photo1 = ImageTk.PhotoImage(img1)
+label3=Label(image=photo1)
+label3.place(x=445,y=150)
+
+img2 = Image.open("image/gba-h.png")
+img2 =img2.resize((int(img2.width*.3),int(img2.height*.3)))
+photo2 = ImageTk.PhotoImage(img2)
+label4=Label(image=photo2)
+label4.place(x=780,y=175)
 
 def userlibraly():
    win.destroy()
